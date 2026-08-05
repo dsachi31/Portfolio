@@ -23,7 +23,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DownloadIcon from '@mui/icons-material/Download';
 import profile from '../src/profile1.png';
 import bg from '../src/bg.png'
-import bg1 from '../src/bg1.png'
+import bg1 from '../src/bg2.png'
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';

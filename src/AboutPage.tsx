@@ -6,7 +6,7 @@ const AboutPage = () => {
 
 
     return (<Box sx={{
-        padding: '20px 60px',
+        padding: '120px 60px 20px 60px',
         backgroundImage: `url(${whitebg})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -22,27 +22,27 @@ const AboutPage = () => {
             },
 
         }}>
-            <Box sx={{ margin: 'auto', padding: '20px 40px', fontSize: '20px', }}>KNOW ME MORE</Box>
-            ***************************
+
             <Box sx={{
                 fontSize: '45px',
-                padding: '20px 40px 0px 0px',
+                padding: '5px 40px 0px 0px',
                 fontWeight: 600,
-                color: '#401258'
+                color: '#401258',
+                textAlign: 'center'
             }}>
                 Hello, My name is Divya S </Box>
 
-            <Box sx={{ margin: 'auto', padding: '0px 40px 40px 40px', fontSize: '20px', }}>
+            <Box sx={{ margin: 'auto', padding: '30px 40px 40px 40px', fontSize: '20px', }}>
 
-                <p style={{ textAlign: 'left', fontFamily: 'sans serif', marginBottom: '10px' }}>
-                    I am a Software Developer with 2+ years of professional hands-on experience in designing, developing, and maintaining web applications.
-                    I have worked on backend development using Java 8/17, Spring Boot 3.2, REST APIs, and MySQL.
-                    I also have experience in frontend development using React.js, TypeScript, HTML, CSS, and Material UI to build responsive user interfaces.
+                <p style={{ lineHeight: '1.8', fontSize: '16px', fontWeight: 400, textAlign: 'left', fontFamily: 'Open Sans, sans-serif', marginBottom: '10px' }}>
+                    I’m a Java Full Stack Developer with 2+ years of professional experience in building web applications using java, Spring Boot, React.js, Material UI and MySQL. <br />I enjoy developing scalable REST APIs, creating responsive user interfaces, integrating REST APIs in front end user interface and working with databases to build reliable and efficient applications.
+                </p><p style={{ lineHeight: '1.8', fontSize: '16px', fontWeight: 400, textAlign: 'left', fontFamily: 'Open Sans, sans-serif', marginBottom: '10px' }}>
+                    I’m passionate about learning new technologies, solving problems, and continuously improving my development skills.<br /> I’m currently looking for an opportunity where I can contribute to real-world projects, grow as a developer and build meaningful software as part of a collaborative team.
                 </p>
 
-                <p style={{ paddingTop: '20px' }}><strong>I worked on : </strong></p>
+                <p style={{ paddingTop: '30px' }}>********************</p>
 
-                <ul style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', padding: '10px' }}>
+                {/* <ul style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', padding: '10px' }}>
                     <li>Developing scalable and secure RESTful APIs using Java and Spring Boot.</li>
 
                     <li>Designing and implementing responsive user interfaces using React.js, TypeScript, HTML, CSS, and Material UI.</li>
@@ -61,7 +61,7 @@ const AboutPage = () => {
 
                     <li>Participating in feature development, bug fixing, and application enhancements.</li>
 
-                </ul>
+                </ul> */}
                 <br />
 
 

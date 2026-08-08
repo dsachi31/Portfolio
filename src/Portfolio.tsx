@@ -8,7 +8,7 @@ import './App.css';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LeetCodeIcon from '../src/leetcodeIcon.png'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Popover } from '@mui/material';
 import * as React from 'react';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
@@ -20,7 +20,7 @@ import bg1 from '../src/bg2.png'
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import AboutPage from '../src/AboutPage'
-
+import SkillsPage from '../src/SkillsPage'
 export default function Portfolio() {
 
     const headStyle = {
@@ -74,6 +74,20 @@ export default function Portfolio() {
     }
 
 
+    const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+    const [id, setId] = React.useState(0)
+    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>, id: number) => {
+        setAnchorEl(event.currentTarget);
+        setId(id)
+    };
+
+    const handlePopoverClose = () => {
+        setAnchorEl(null);
+        setId(0)
+    };
+
+    const openPopup = Boolean(anchorEl);
+
     return (
         <>
             <div className="App" style={{
@@ -91,31 +105,6 @@ export default function Portfolio() {
                 backgroundSize: "cover",
             }}>
 
-                <Grid container sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    boxShadow: ' rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
-                    // padding: '5px 10px',
-                    padding: '5px 80px 5px 70px',
-                    position: 'static',
-
-                }}>
-
-                    <Grid size={2} sx={{ color: '#fff', textAlign: 'left', }} >
-                        <Button sx={headStyle}>Divya S</Button>
-                    </Grid>
-                    <Grid size={3}></Grid>
-                    <Grid size={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <Button sx={headStyle}>Home</Button>
-                        <Button sx={headStyle}>About</Button>
-                        <Button sx={headStyle}>Experience</Button>
-                        <Button sx={headStyle}>Projects</Button>
-                        <Button sx={headStyle}>Skills</Button>
-                        <Button sx={headStyle}>Resume</Button>
-                        <Button sx={headStyle}>Contact</Button>
-                    </Grid>
-                </Grid>
 
 
                 <Grid container spacing={2} sx={{
@@ -187,37 +176,45 @@ export default function Portfolio() {
                                 md: 'flex-start'
                             }, alignItems: 'center', gap: '20px'
                         }}>
-                            <Button onClick={() => { handleClickOpen(); setProfessionalPlatform(1); }} sx={{
-                                borderRadius: '50%',
-                                textTransform: 'none',
-                                padding: '0px 0px',
-                                fontSize: '20px',
-                                background: ' #6a1b9a',
-                                color: '#fff',
-                                '&:hover': {
-                                    background: ' #6a1b9a', color: '#fff',
-                                    transform: "scale(1.15) translateY(-3px)",
-                                    boxShadow: "0 12px 30px rgba(186, 104, 200, 0.6)",
-                                },
-                            }}><GitHubIcon sx={{ fontSize: '50px' }} /></Button>
-                            <Button onClick={() => { handleClickOpen(); setProfessionalPlatform(2); }} sx={{
-                                borderRadius: '15px',
-                                textTransform: 'none',
-                                padding: '0px 0px',
-                                fontSize: '20px',
-                                background: ' #6a1b9a',
-                                color: '#fff',
-                                '&:hover': {
-                                    background: ' #6a1b9a', color: '#fff',
-                                    transform: "scale(1.15) translateY(-3px)",
-                                    boxShadow: "0 12px 30px rgba(186, 104, 200, 0.6)",
-                                },
-                            }}><LinkedInIcon sx={{ fontSize: '55px' }} /></Button>
+                            <Button
+                                onMouseEnter={(e: any) => { handlePopoverOpen(e, 1) }}
+                                onMouseLeave={handlePopoverClose}
+                                onClick={() => { handleClickOpen(); setProfessionalPlatform(1); }} sx={{
+                                    borderRadius: '50%',
+                                    textTransform: 'none',
+                                    padding: '0px 0px',
+                                    fontSize: '20px',
+                                    background: ' #6a1b9a',
+                                    color: '#fff',
+                                    '&:hover': {
+                                        background: ' #6a1b9a', color: '#fff',
+                                        transform: "scale(1.15) translateY(-3px)",
+                                        boxShadow: "0 12px 30px rgba(186, 104, 200, 0.6)",
+                                    },
+                                }}><GitHubIcon sx={{ fontSize: '50px' }} /></Button>
+                            <Button
+                                onMouseEnter={(e: any) => { handlePopoverOpen(e, 2) }}
+                                onMouseLeave={handlePopoverClose}
+                                onClick={() => { handleClickOpen(); setProfessionalPlatform(2); }} sx={{
+                                    borderRadius: '15px',
+                                    textTransform: 'none',
+                                    padding: '0px 0px',
+                                    fontSize: '20px',
+                                    background: ' #6a1b9a',
+                                    color: '#fff',
+                                    '&:hover': {
+                                        background: ' #6a1b9a', color: '#fff',
+                                        transform: "scale(1.15) translateY(-3px)",
+                                        boxShadow: "0 12px 30px rgba(186, 104, 200, 0.6)",
+                                    },
+                                }}><LinkedInIcon sx={{ fontSize: '55px' }} /></Button>
 
                             <Box
                                 component="img"
                                 src={LeetCodeIcon}
                                 alt="LeetCode"
+                                onMouseEnter={(e: any) => { handlePopoverOpen(e, 3) }}
+                                onMouseLeave={handlePopoverClose}
                                 onClick={() => {
                                     handleClickOpen();
                                     setProfessionalPlatform(3);
@@ -248,6 +245,34 @@ export default function Portfolio() {
                             />
 
                         </Box>
+                        <div>
+                            {/* <Box
+                                aria-owns={openPopup ? 'mouse-over-popover' : undefined}
+                                aria-haspopup="true"
+                                onMouseEnter={handlePopoverOpen}
+                                onMouseLeave={handlePopoverClose}
+                            >
+                                Hover with a Popover.
+                            </Box> */}
+                            <Popover
+                                id="mouse-over-popover"
+                                sx={{ pointerEvents: 'none' }}
+                                open={openPopup}
+                                anchorEl={anchorEl}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                onClose={handlePopoverClose}
+                                disableRestoreFocus
+                            >
+                                <Box sx={{ p: 1 }}>{id === 1 ? "Github" : id === 2 ? "LinkedIn" : "LeetCode"}</Box>
+                            </Popover>
+                        </div>
                         <React.Fragment>
 
                             <Dialog
@@ -362,6 +387,7 @@ export default function Portfolio() {
 
             </div >
             <AboutPage />
+            <SkillsPage />
 
         </>
     );

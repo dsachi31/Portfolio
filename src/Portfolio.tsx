@@ -4,7 +4,6 @@
 
 
 import CloseIcon from '@mui/icons-material/Close';
-import './App.css';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LeetCodeIcon from '../src/leetcodeIcon.png'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -21,6 +20,10 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import AboutPage from '../src/AboutPage'
 import SkillsPage from '../src/SkillsPage'
+import ExperinecePage from './ExperiencePage';
+import ProjectsPage from './ProjectsPage';
+import ResumePage from './ResumePage';
+import ContactPage from './ContactPage';
 export default function Portfolio() {
 
     const headStyle = {
@@ -48,10 +51,10 @@ export default function Portfolio() {
         setOpen(false);
     };
     const downloadPdf = () => {
-        const pdfUrl = "/Divya_S_26_Mar_Updated_CV.pdf"; // from public folder
+        const pdfUrl = "/Divya_S_updated_CV.pdf"; // from public folder
         const link = document.createElement("a");
         link.href = pdfUrl;
-        link.download = "Divya_S_26_Mar_Updated_CV.pdf";
+        link.download = "Divya_S_updated_CV.pdf";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -388,6 +391,10 @@ export default function Portfolio() {
             </div >
             <AboutPage />
             <SkillsPage />
+            <ExperinecePage />
+            <ProjectsPage />
+            <ResumePage />
+            <ContactPage />
 
         </>
     );

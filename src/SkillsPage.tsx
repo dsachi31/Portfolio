@@ -35,7 +35,7 @@ const SkillsPage = () => {
     }}>
 
 
-        <Box sx={{ fontSize: '60px', padding: '30px 50px', fontWeight: 600, color: '#fff' }}> Skills</Box>
+        <Box sx={{ fontSize: '60px', padding: '30px 50px', fontWeight: 600, color: '#eeeeee' }}> Skills</Box>
         <Box
             sx={{
                 padding: '60px',
@@ -88,7 +88,7 @@ const SkillsPage = () => {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        backgroundColor: '#faf7fc',
+                        backgroundColor: '#eeeeee',
                         border: '1px solid #eee',
                         transition: 'all 0.3s ease',
 

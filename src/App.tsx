@@ -36,9 +36,9 @@ function App() {
         <Grid size={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Button sx={headStyle}>Home</Button>
           <Button sx={headStyle}>About</Button>
+          <Button sx={headStyle}>Skills</Button>
           <Button sx={headStyle}>Experience</Button>
           <Button sx={headStyle}>Projects</Button>
-          <Button sx={headStyle}>Skills</Button>
           <Button sx={headStyle}>Resume</Button>
           <Button sx={headStyle}>Contact</Button>
         </Grid>

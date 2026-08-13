@@ -45,14 +45,7 @@ const ProjectsPage = () => {
 
             github: "https://github.com/dsachi31/Portfolio",
         },
-        {
-            title: "Predefined User Chatbot",
-            description:
-                "Developed a chatbot capable of answering predefined queries with an interactive User Interface (UI) for the already defined answers recorded using below tech stacks. ",
-            tech: ["React.js", "JavaScript", "HTML5", "CSS3"],
-            demo: "https://dsachiwfmchatbot.netlify.app/",
-            github: "https://github.com/dsachi31/chatbot",
-        },
+
         {
             title: "Tech Development",
             description:
@@ -67,6 +60,15 @@ const ProjectsPage = () => {
             demo: "https://stellular-crepe-b02f98.netlify.app/",
             github: "#",
 
+        },
+
+        {
+            title: "Predefined User Chatbot",
+            description:
+                "Developed a chatbot capable of answering predefined queries with an interactive User Interface (UI) for the already defined answers recorded using below tech stacks. ",
+            tech: ["React.js", "JavaScript", "HTML5", "CSS3"],
+            demo: "https://dsachiwfmchatbot.netlify.app/",
+            github: "https://github.com/dsachi31/chatbot",
         },
         {
             title: "Anime Website",

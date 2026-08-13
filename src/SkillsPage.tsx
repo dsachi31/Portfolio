@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Tooltip } from '@mui/material'
 import bg_violet from '../src/bg_violet.png'
 import java from '../src/logos/java_logo-removebg-preview.png'
 import docker from '../src/logos/docker_logo-removebg-preview.png'
@@ -20,20 +20,19 @@ import sql from '../src/logos/sql_logo-removebg-preview.png'
 import vscode from '../src/logos/vscode-removebg-preview.png'
 import restapi from '../src/logos/Rest_api_logo-removebg-preview.png'
 import javascript from '../src/logos/javascript_logo-removebg-preview.png'
+import python from '../src/logos/python.png'
+import django from '../src/logos/django.png'
+
 
 const SkillsPage = () => {
 
-
-
     return (<Box sx={{
-
         padding: '80px 60px 120px 60px',
         backgroundImage: `url(${bg_violet})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
     }}>
-
 
         <Box sx={{ fontSize: '60px', padding: '30px 50px', fontWeight: 600, color: '#eeeeee' }}> Skills</Box>
         <Box
@@ -51,63 +50,79 @@ const SkillsPage = () => {
             }}
         >
             {[
+                { image: java, name: "Java" },
+                { image: spring, name: "Spring Boot" },
+                { image: postman, name: "Postman" },
+                { image: git, name: "Git" },
+                { image: github, name: "GitHub" },
+                { image: sql, name: "SQL" },
+                { image: html, name: "HTML5" },
+                { image: react, name: "React.js" },
+                { image: eclipse, name: "Eclipse" },
+                { image: mui, name: "Material UI" },
+                { image: csslogo, name: "CSS3" },
+                { image: vscode, name: "VS Code" },
+                { image: restapi, name: "REST API" },
+                { image: mongo, name: "MongoDB" },
+                { image: docker, name: "Docker" },
+                { image: mysql, name: "MySQL" },
+                { image: python, name: "Python" },
+                { image: django, name: "Django" },
 
 
-
-                { image: java, name: 'JAVA' },
-                { image: spring, name: 'Spring Boot' },
-
-                { image: postman, name: 'Postman' },
-                { image: git, name: 'Git' },
-                { image: github, name: 'GitHub' },
-                { image: sql, name: 'SQL' },
-
-                { image: html, name: 'HTML' },
-
-                { image: react, name: 'React' },
-
-                { image: eclipse, name: 'Eclipse' },
-
-
-                { image: mui, name: 'Material UI' },
-                { image: csslogo, name: 'CSS' },
-                { image: vscode, name: 'VS Code' },
-                { image: restapi, name: 'REST API' },
-                { image: mongo, name: 'MongoDB' },
-                { image: docker, name: 'Docker' },
-                { image: mysql, name: 'MySQL' },
-                { image: lottie, name: 'Lottie' },
-
+                { image: lottie, name: "Lottie" },
             ].map((tech) => (
-                <Box
+                <Tooltip
                     key={tech.name}
-                    sx={{
-                        // width: '120px',
-                        // height: '120px',
-                        borderRadius: '20px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        backgroundColor: '#eeeeee',
-                        border: '1px solid #eee',
-                        transition: 'all 0.3s ease',
-
-                        '&:hover': {
-                            transform: 'translateY(-8px)',
-                            boxShadow: '0 10px 25px #fff',
+                    title={tech.name}
+                    arrow
+                    placement="top"
+                    slotProps={{
+                        tooltip: {
+                            sx: {
+                                color: "#401258",
+                                bgcolor: "#fff",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                px: 2,
+                                py: 1,
+                                borderRadius: "10px",
+                            },
+                        },
+                        arrow: {
+                            sx: {
+                                color: "#fff",
+                            },
                         },
                     }}
                 >
-                    <img
-                        src={tech.image}
-                        width="120px"
-                        height="120px"
-                        alt={tech.name}
-                        style={{
-                            objectFit: 'contain',
+                    <Box
+                        sx={{
+                            borderRadius: "20px",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            backgroundColor: "#eeeeee",
+                            border: "1px solid #eee",
+                            transition: "all .3s ease",
+
+                            "&:hover": {
+                                transform: "translateY(-8px)",
+                                boxShadow: "0 10px 25px #fff",
+                            },
                         }}
-                    />
-                </Box>
+                    >
+                        <img
+                            src={tech.image}
+                            width="120px"
+                            height="120px"
+                            alt={tech.name}
+                            style={{
+                                objectFit: "contain",
+                            }}
+                        />
+                    </Box>
+                </Tooltip>
             ))}
         </Box>
 

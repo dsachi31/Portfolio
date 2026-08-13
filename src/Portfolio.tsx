@@ -1,8 +1,9 @@
 
+import Zoom from "@mui/material/Zoom";
 
-
-
-
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { Card, CardContent, Chip, Fab, Stack, Tooltip, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LeetCodeIcon from '../src/leetcodeIcon.png'
@@ -24,8 +25,54 @@ import ExperinecePage from './ExperiencePage';
 import ProjectsPage from './ProjectsPage';
 import ResumePage from './ResumePage';
 import ContactPage from './ContactPage';
+import { useNavigate } from "react-router-dom";
+import whitebg from '../src/white_bg.jpeg'
+
+
+import bg_violet from '../src/bg_violet.png'
+import java from '../src/logos/java_logo-removebg-preview.png'
+import docker from '../src/logos/docker_logo-removebg-preview.png'
+import eclipse from '../src/logos/eclipse_logo-removebg-preview.png'
+import html from '../src/logos/html_logo-removebg-preview.png'
+import mongo from '../src/logos/mongo_logo-removebg-preview.png'
+import lottie from '../src/logos/lottie_logo-removebg-preview.png'
+import mui from '../src/logos/mui_logo-removebg-preview.png'
+import mysql from '../src/logos/mysql_logo-removebg-preview.png'
+import postman from '../src/logos/postman_logo-removebg-preview.png'
+
+
+import csslogo from '../src/logos/css_logo-removebg-preview.png'
+import git from '../src/logos/git_logo-removebg-preview.png'
+import github from '../src/logos/github-removebg-preview.png'
+import react from '../src/logos/react-removebg-preview.png'
+import spring from '../src/logos/spring_logo-removebg-preview.png'
+import sql from '../src/logos/sql_logo-removebg-preview.png'
+import vscode from '../src/logos/vscode-removebg-preview.png'
+import restapi from '../src/logos/Rest_api_logo-removebg-preview.png'
+import javascript from '../src/logos/javascript_logo-removebg-preview.png'
+import python from '../src/logos/python.png'
+import django from '../src/logos/django.png'
+
+
+import leetcode from '../src/leetcodeIcon.png'
+import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+
+
+import {
+
+    Drawer,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemText,
+    IconButton,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 export default function Portfolio() {
 
+
+    const navigate = useNavigate()
     const headStyle = {
         textTransform: 'none', color: '#fff', fontSize: '17px', '&:hover': { textDecoration: "underline", }
 
@@ -90,10 +137,349 @@ export default function Portfolio() {
     };
 
     const openPopup = Boolean(anchorEl);
+    const scrollToTop = () => {
+        const duration = 1500; // 1.5 seconds
+        const start = window.scrollY;
+        const startTime = performance.now();
 
+        const animate = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            window.scrollTo(0, start * (1 - progress));
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        };
+
+        requestAnimationFrame(animate);
+    };
+
+    const [showButton, setShowButton] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowButton(true);
+            } else {
+                setShowButton(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
+
+
+    const professionalProjects = [
+        {
+            title: "Prior Auth Management System",
+            duration: "Nov 2024 – Jul 2025",
+            description:
+                "Developed backend REST APIs and responsive frontend modules for healthcare authorization workflows. Worked on importing large datasets into MySQL and supporting end-to-end authorization processes.",
+            tech: ["Java", "Spring Boot", "React.js", "MySQL", "Docker"],
+        },
+        {
+            title: "HR Management System",
+            duration: "Jan 2024 – Oct 2024",
+            description:
+                "Developed interview scheduling, resume processing, and AI-assisted document analysis modules. Built REST APIs and integrated responsive frontend user interface using below tech stacks",
+            tech: ["java Spring Boot", "React.js", "MySQL", "Django Python"],
+        },
+        {
+            title: "Drug Visualization System",
+            duration: "Jun 2023 –   Dec 2023",
+            description:
+                "Developed drug visualization dashboards and backend modules for cancer drug research by categorising both Intravenous and Non-Intravenous medications, improving data representation and user interaction.",
+            tech: ["Java", "Spring Boot", "React.js", "D3.js", "Typescript"],
+        },
+    ];
+
+    const personalProjects = [
+        {
+            title: "Portfolio Website",
+            description:
+                "Designed and developed a responsive portfolio website to showcase my experience, skills, and projects along with my resume attached for any update please contact for the below details provided.",
+            tech: ["React.js", "Typescript", "HTML5", "CSS3", "Material UI"],
+
+            github: "https://github.com/dsachi31/Portfolio",
+        },
+        {
+            title: "Predefined User Chatbot",
+            description:
+                "Developed a chatbot capable of answering predefined queries with an interactive User Interface (UI) for the already defined answers recorded using below tech stacks. ",
+            tech: ["React.js", "JavaScript", "HTML5", "CSS3"],
+            demo: "https://dsachiwfmchatbot.netlify.app/",
+            github: "https://github.com/dsachi31/chatbot",
+        },
+        {
+            title: "Tech Development",
+            description:
+                "Developed a responsive web application that showcases various software development technologies, programming concepts, and learning resources. Designed an intuitive interface to help users explore technical topics with a clean and user-friendly experience.",
+            tech: [
+                "React.js",
+                "Typescript",
+                "Material UI",
+                "HTML5",
+                "CSS3",
+            ],
+            demo: "https://stellular-crepe-b02f98.netlify.app/",
+            github: "#",
+
+        },
+        {
+            title: "Anime Website",
+            description:
+                "Built a responsive anime browsing website with a modern UI and API integration by taking random anime api from Rapid API Platform.",
+            tech: ["React.js", "JavaScript", "HTML5", "CSS3", "Rapid API"],
+            demo: "https://tranquil-longma-eceb3f.netlify.app/",
+            github: "https://github.com/dsachi31/Divya_Animes",
+        },
+
+        {
+            title: "Money Wheels",
+            description:
+                "Vehicle marketplace application for buying, selling, leasing, and renting vehicles with REST APIs and database integration.",
+            tech: [
+                "Java",
+                "Spring Boot",
+                "Hibernate",
+                "React.js",
+                "MySQL",
+            ],
+            github: "https://github.com/dsachi31/Money-Wheels"
+        },
+    ];
+
+    const [activeSection, setActiveSection] = React.useState("home");
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const sections = [
+                "home",
+                "about",
+                "skills",
+                "experience",
+                "projects",
+                "contact",
+            ];
+
+            let current = "home";
+
+            sections.forEach((section) => {
+                const element = document.getElementById(section);
+
+                if (element) {
+                    const top = element.offsetTop - 120;
+
+                    if (window.scrollY >= top) {
+                        current = section;
+                    }
+                }
+            });
+
+            setActiveSection(current);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const navStyle = (section: string) => ({
+        textTransform: "none",
+        fontSize: "17px",
+        color: activeSection === section ? "#6a1b9a" : "#eeeeee",
+        background:
+            activeSection === section ? "#eeeeee" : "transparent",
+        borderRadius: "25px",
+        px: 2,
+        transition: ".3s",
+
+        "&:hover": {
+            background: "#eeeeee",
+            color: "#6a1b9a",
+        },
+    });
+
+
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+    };
+
+
+    const [openNav, setOpenNav] = useState(false);
+
+    const menuItems = [
+        "home",
+        "about",
+        "skills",
+        "experience",
+        "projects",
+        "contact",
+    ];
     return (
         <>
-            <div className="App" style={{
+
+            {/* <Grid id="navbar" container sx={{
+                // display: 'flex',
+                // alignItems: 'center',
+                // justifyContent: 'space-between',
+                background: 'linear-gradient(135deg,  #0a080b, #0c0311, #6a1b9a, #6a1b9a,  #401258, #360d4f, #220929, #0c0311, #000)',
+                // padding: '5px 10px',
+                padding: '10px 80px 10px 70px',
+                position: "fixed",
+                top: 0,
+                width: "100%",
+                zIndex: 9999,
+
+            }}>
+
+                <Grid size={2} sx={{ color: '#fff', textAlign: 'left', }} >
+                    <Button sx={headStyle}>Divya S</Button>
+                </Grid>
+                <Grid size={3}></Grid>
+                <Grid size={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
+
+                    <Button sx={navStyle("home")} onClick={() => scrollToSection("home")}>Home</Button>
+
+                    <Button sx={navStyle("about")} onClick={() => scrollToSection("about")}>About</Button>
+
+                    <Button sx={navStyle("skills")} onClick={() => scrollToSection("skills")}>Skills</Button>
+
+                    <Button sx={navStyle("experience")} onClick={() => scrollToSection("experience")}>Experience</Button>
+
+                    <Button sx={navStyle("projects")} onClick={() => scrollToSection("projects")}>Projects</Button>
+
+                    <Button sx={navStyle("contact")} onClick={() => scrollToSection("contact")}>Contact</Button>
+                </Grid>
+            </Grid> */}
+            <Grid
+                container
+                alignItems="center"
+                sx={{
+                    background:
+                        "linear-gradient(135deg,#0a080b,#0c0311,#6a1b9a,#6a1b9a,#401258,#360d4f,#220929,#0c0311,#000)",
+                    px: { xs: 2, sm: 4, md: 8 },
+                    py: 1.5,
+                    position: "fixed",
+                    top: 0,
+                    width: "100%",
+                    zIndex: 9999,
+                }}
+            >
+                {/* Logo */}
+                <Grid size={{ xs: 5, md: 1 }}>
+                    <Box sx={{ fontWeight: 600, ...headStyle }}>Divya S</Box>
+                </Grid>
+
+                {/* Desktop Menu */}
+                <Grid
+                    size={{ md: 9 }}
+                    sx={{
+                        display: {
+                            xs: "none",
+                            md: "flex",
+                        },
+                        justifyContent: "flex-end",
+                        gap: 2,
+                    }}
+                >
+                    <Button sx={navStyle("home")} onClick={() => scrollToSection("home")}>
+                        Home
+                    </Button>
+
+                    <Button sx={navStyle("about")} onClick={() => scrollToSection("about")}>
+                        About
+                    </Button>
+
+                    <Button sx={navStyle("skills")} onClick={() => scrollToSection("skills")}>
+                        Skills
+                    </Button>
+
+                    <Button
+                        sx={navStyle("experience")}
+                        onClick={() => scrollToSection("experience")}
+                    >
+                        Experience
+                    </Button>
+
+                    <Button
+                        sx={navStyle("projects")}
+                        onClick={() => scrollToSection("projects")}
+                    >
+                        Projects
+                    </Button>
+
+                    <Button
+                        sx={navStyle("contact")}
+                        onClick={() => scrollToSection("contact")}
+                    >
+                        Contact
+                    </Button>
+                </Grid>
+
+                {/* Mobile Menu Icon */}
+                <Grid
+                    size={{ xs: 6 }}
+                    sx={{
+                        display: { xs: "flex", md: "none" },
+                        justifyContent: "flex-end",
+                    }}
+                >
+                    <IconButton onClick={() => setOpenNav(true)}>
+                        <MenuIcon sx={{ color: "#fff" }} />
+                    </IconButton>
+                </Grid>
+            </Grid>
+
+
+            <Drawer
+                anchor="right"
+                open={openNav}
+
+                onClose={() => setOpenNav(false)}
+                PaperProps={{
+                    sx: {
+                        height: "50%",
+                        top: "9%",
+                        borderTopLeftRadius: 16,
+                        borderBottomLeftRadius: 16,
+                    },
+                }}
+            >
+                <List sx={{ width: 180, height: 100, color: '#360d4f', }}>
+                    {menuItems.map((item) => (
+                        <ListItem key={item} disablePadding>
+                            <ListItemButton
+                                onClick={() => {
+                                    scrollToSection(item);
+                                    setOpen(false);
+                                }}
+                            >
+                                <ListItemText sx={{
+
+
+                                }}
+                                    primary={item.charAt(0).toUpperCase() + item.slice(1)}
+                                />
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
+                </List>
+            </Drawer>
+            <Box className="App" id="home" style={{
                 // padding: '0px 80px 31px 80px',
                 paddingBottom: '65px',
                 // background: '#7b1fa2',
@@ -136,18 +522,24 @@ export default function Portfolio() {
 
 
 
-                    <Grid size={6} sx={{
+                    <Grid size={{
+                        xs: 12, // 1 card per row
+                        sm: 6,  // 2 cards per row
+                        // md: 4,  // 3 cards per row
+                    }} sx={{
                         color: '#fff', textAlign: 'left',
 
 
+
                     }} >
-                        <Box sx={{ fontSize: '20px', padding: '20px 40px 0px 0px' }}>Hello, I'm </Box>
+                        <Box sx={{ fontSize: '20px', padding: '55px 40px 0px 0px' }}>Hello, I'm </Box>
                         <Box sx={{ fontSize: '60px', padding: '20px 40px 0px 0px', fontWeight: 600 }}>Divya </Box>
                         <Box sx={{ padding: '10px 40px 10px 0px ', fontSize: '30px', }}> Software Developer</Box>
                         <Box sx={{ padding: '0px 40px 30px 0px' }}>Building scalable and user-friendly web applications
                             using Java, Spring Boot, React.js, and MySQL.</Box>
                         <Box sx={{ padding: '20px 20px 20px 0px', display: 'flex', alignItems: 'stretch', justifyContent: 'flex-start', gap: '20px' }}>
                             <Button onClick={handleClick} sx={{
+
                                 textTransform: 'none',
                                 padding: '5px 20px',
                                 fontSize: '20px',
@@ -224,9 +616,9 @@ export default function Portfolio() {
                                 }}
                                 sx={{
                                     width: {
-                                        xs: 40,
-                                        sm: 45,
-                                        md: 50
+                                        xs: 35,
+                                        sm: 40,
+                                        md: 45
                                     },
 
                                     height: {
@@ -258,7 +650,8 @@ export default function Portfolio() {
                                 Hover with a Popover.
                             </Box> */}
                             <Popover
-                                id="mouse-over-popover"
+                                // id="mouse-over-popover"
+                                disableScrollLock
                                 sx={{ pointerEvents: 'none' }}
                                 open={openPopup}
                                 anchorEl={anchorEl}
@@ -266,14 +659,14 @@ export default function Portfolio() {
                                     vertical: 'bottom',
                                     horizontal: 'left',
                                 }}
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                }}
+                                // transformOrigin={{
+                                //     vertical: 'top',
+                                //     horizontal: 'left',
+                                // }}
                                 onClose={handlePopoverClose}
                                 disableRestoreFocus
                             >
-                                <Box sx={{ p: 1 }}>{id === 1 ? "Github" : id === 2 ? "LinkedIn" : "LeetCode"}</Box>
+                                <Box sx={{ p: 0.5, fontSize: '15px', fontWeight: 600 }}>{id === 1 ? "Github" : id === 2 ? "LinkedIn" : id === 3 ? "Leet Code" : " "}</Box>
                             </Popover>
                         </div>
                         <React.Fragment>
@@ -358,7 +751,11 @@ export default function Portfolio() {
                         </React.Fragment>
                     </Grid>
 
-                    <Grid size={6} sx={{
+                    <Grid size={{
+                        xs: 12, // 1 card per row
+                        sm: 6,  // 2 cards per row
+                        md: 4,  // 3 cards per row
+                    }} sx={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
 
                     }}>
@@ -388,13 +785,733 @@ export default function Portfolio() {
 
                 </Grid>
 
-            </div >
-            <AboutPage />
-            <SkillsPage />
-            <ExperinecePage />
-            <ProjectsPage />
-            <ResumePage />
-            <ContactPage />
+            </Box >
+
+
+            <Zoom in={showButton}>
+                <Fab
+                    onClick={scrollToTop}
+                    sx={{
+                        position: "fixed",
+                        bottom: 30,
+                        right: 30,
+                        bgcolor: "#401258",
+                        color: "#fff",
+                        zIndex: 9999,
+                        outline: '5px dotted #eeeeee',
+
+                        "&:hover": {
+                            bgcolor: "#5b197e",
+                            outline: '5px dotted #eeeeee'
+                        },
+                    }}
+                >
+                    <KeyboardArrowUpIcon />
+                </Fab>
+            </Zoom>
+
+
+
+
+
+
+            <Box id="about" style={{
+                padding: '120px 60px 20px 60px',
+                backgroundImage: `url(${whitebg})`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+
+            }}>
+
+                <Box sx={{
+                    padding: {
+                        xs: '25px',
+                        sm: '30px',
+                        md: '30px 40px',
+                        lg: '30px 60px'
+                    },
+
+                }}>
+
+                    <Box sx={{
+                        fontSize: '45px',
+                        padding: '5px 40px 0px 0px',
+                        fontWeight: 600,
+                        color: '#401258',
+                        textAlign: 'center'
+                    }}>
+                        Hello, My name is Divya S </Box>
+
+                    <Box sx={{ margin: 'auto', padding: '30px 40px 40px 40px', fontSize: '20px', }}>
+
+                        <p style={{ lineHeight: '1.8', fontSize: '16px', fontWeight: 400, textAlign: 'left', fontFamily: 'Open Sans, sans-serif', marginBottom: '10px' }}>
+                            I’m a Java Full Stack Developer with 2+ years of professional experience in building web applications using java, Spring Boot, React.js, Material UI and MySQL. <br />I enjoy developing scalable REST APIs, creating responsive user interfaces, integrating REST APIs in front end user interface and working with databases to build reliable and efficient applications.
+                        </p><p style={{ lineHeight: '1.8', fontSize: '16px', fontWeight: 400, textAlign: 'left', fontFamily: 'Open Sans, sans-serif', marginBottom: '10px' }}>
+                            I’m passionate about learning new technologies, solving problems, and continuously improving my development skills.<br /> I’m currently looking for an opportunity where I can contribute to real-world projects, grow as a developer and build meaningful software as part of a collaborative team.
+                        </p>
+
+                        <p style={{ paddingTop: '30px' }}>********************</p>
+
+                        {/* <ul style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', padding: '10px' }}>
+                    <li>Developing scalable and secure RESTful APIs using Java and Spring Boot.</li>
+
+                    <li>Designing and implementing responsive user interfaces using React.js, TypeScript, HTML, CSS, and Material UI.</li>
+
+                    <li>Writing clean, reusable, and maintainable code following industry best practices.</li>
+
+                    <li>Collaborating with cross-functional Agile teams to understand business requirements and deliver high-quality solutions.</li>
+
+                    <li>Integrating frontend applications with backend REST APIs.</li>
+
+                    <li>Working with MySQL database for designing tables.</li>
+
+                    <li>Using Git and GitHub for version control, code reviews, and team collaboration.</li>
+
+                    <li>Debugging, testing, and fixing application issues to improve performance and reliability.</li>
+
+                    <li>Participating in feature development, bug fixing, and application enhancements.</li>
+
+                </ul> */}
+                        <br />
+
+
+                    </Box>
+
+
+
+                </Box>
+
+
+
+            </Box>
+
+
+
+            <Box id="skills" style={{
+                padding: '80px 60px 120px 60px',
+                backgroundImage: `url(${bg_violet})`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+            }}>
+
+                <Box sx={{ fontSize: '60px', padding: '30px 50px', fontWeight: 600, color: '#eeeeee' }}> Skills</Box>
+                <Box
+                    sx={{
+                        padding: '60px',
+                        borderRadius: '30px',
+                        // backgroundColor: '#fff',
+                        boxShadow: '0 8px 30px #fff',
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'center',
+                        gap: '25px',
+                        width: '100%',
+                        boxSizing: 'border-box',
+                    }}
+                >
+                    {[
+                        { image: java, name: "Java" },
+                        { image: spring, name: "Spring Boot" },
+                        { image: postman, name: "Postman" },
+                        { image: git, name: "Git" },
+                        { image: github, name: "GitHub" },
+                        { image: sql, name: "SQL" },
+                        { image: html, name: "HTML5" },
+                        { image: react, name: "React.js" },
+                        { image: eclipse, name: "Eclipse" },
+                        { image: mui, name: "Material UI" },
+                        { image: csslogo, name: "CSS3" },
+                        { image: vscode, name: "VS Code" },
+                        { image: restapi, name: "REST API" },
+                        { image: mongo, name: "MongoDB" },
+                        { image: docker, name: "Docker" },
+                        { image: mysql, name: "MySQL" },
+                        { image: python, name: "Python" },
+                        { image: django, name: "Django" },
+
+
+                        { image: lottie, name: "Lottie" },
+                    ].map((tech) => (
+                        <Tooltip
+                            key={tech.name}
+                            title={tech.name}
+                            arrow
+                            placement="top"
+                            slotProps={{
+                                tooltip: {
+                                    sx: {
+                                        color: "#401258",
+                                        bgcolor: "#fff",
+                                        fontSize: "14px",
+                                        fontWeight: 600,
+                                        px: 2,
+                                        py: 1,
+                                        borderRadius: "10px",
+                                    },
+                                },
+                                arrow: {
+                                    sx: {
+                                        color: "#fff",
+                                    },
+                                },
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    borderRadius: "20px",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    backgroundColor: "#eeeeee",
+                                    border: "1px solid #eee",
+                                    transition: "all .3s ease",
+
+                                    "&:hover": {
+                                        transform: "translateY(-8px)",
+                                        boxShadow: "0 10px 25px #fff",
+                                    },
+                                }}
+                            >
+                                <img
+                                    src={tech.image}
+                                    width="120px"
+                                    height="120px"
+                                    alt={tech.name}
+                                    style={{
+                                        objectFit: "contain",
+                                    }}
+                                />
+                            </Box>
+                        </Tooltip>
+                    ))}
+                </Box>
+
+            </Box>
+
+
+
+            <Box id="experience" style={{
+
+                padding: '80px 60px 120px 60px',
+                backgroundImage: `url(${whitebg})`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+            }}>
+                <Box sx={{ fontSize: '40px', padding: '15px 20px', fontWeight: 600, color: '#401258', textAlign: 'left' }}> Software Developer</Box>
+                <Box sx={{ fontSize: '25px', padding: '5px 20px', fontWeight: 400, color: '#401258', textAlign: 'left' }}> IOSYS Software India Pvt. Ltd.</Box>
+                <Box sx={{ fontSize: '20px', padding: '0px 20px', fontWeight: 400, color: '#401258', textAlign: 'left' }}> June 2023 – July 2025</Box>
+
+                <Box sx={{ fontSize: '15px', padding: '10px 20px', fontWeight: 400, color: '#401258', textAlign: 'left' }}>Worked as a Software Developer, contributing to the development and maintenance of web applications using Java, Spring Boot, React.js, and MySQL, Django, python, Mongo DB.
+
+                    <ul style={{ lineHeight: "1.3", fontSize: '1px', padding: '10px 20px', fontWeight: 400, color: '#401258', textAlign: 'left' }}>
+                        <li style={{ fontSize: '16px' }}>
+                            Developed and maintained RESTful APIs using Java and Spring Boot.
+                        </li>
+
+                        <li style={{ fontSize: '16px' }}>
+                            Built responsive and reusable user interfaces using React.js, JavaScript, HTML, CSS, and Material UI.
+                        </li>
+
+                        <li style={{ fontSize: '16px' }}>
+                            Worked with MySQL for database operations, query optimization, and data management.
+                        </li>
+                        <li style={{ fontSize: '16px' }}>Developed REST APIs using Django (python), and mongoDB for database.</li>
+                        <li style={{ fontSize: '16px' }}>
+                            Integrated frontend applications with backend REST APIs to deliver dynamic user experiences.
+                        </li>
+
+                        <li style={{ fontSize: '16px' }}>
+                            Implemented business logic, validations, exception handling, and CRUD operations.
+                        </li>
+
+                        <li style={{ fontSize: '16px' }}>
+                            Used Hibernate/JPA with Spring Boot for efficient database interaction.
+                        </li>
+
+                        <li style={{ fontSize: '16px' }}>
+                            Tested and debugged APIs using Postman and managed source code with Git.
+                        </li>
+
+                        <li style={{ fontSize: '16px' }}>
+                            Collaborated with cross-functional team members to develop, test, and deliver application features.
+                        </li>
+
+                        <li style={{ fontSize: '16px' }}>
+                            Participated in debugging, maintenance, and performance improvements of existing application modules.
+                        </li>
+                        <li style={{ fontSize: '16px' }}>Participated in Agile sprint planning and code reviews.</li>
+                        <li style={{ fontSize: '16px' }}>Fixed production issues and enhanced application stability.</li>
+                        <li style={{ fontSize: '16px' }}>Used Git for code versioning.</li>
+                    </ul>
+
+
+                    <Box sx={{ fontSize: '20px', padding: '10px 10px 0px', fontWeight: 600, color: '#401258', dsiplay: 'flex', textAlign: 'left' }}> Tech Stack : </Box>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            gap: "10px",
+                            padding: "20px 0",
+                            color: "#401258",
+                            fontSize: {
+                                xs: "14px",
+                                sm: "15px",
+                                md: "16px",
+                                lg: "18px",
+                            },
+                            fontWeight: 500,
+                            lineHeight: 1,
+                        }}
+                    >
+                        {[
+                            "Java",
+                            "Spring Boot",
+                            "REST API",
+                            "Hibernate",
+                            "React.js",
+                            "JavaScript",
+                            "MySQL",
+                            "HTML5",
+                            "CSS3",
+                            "Material UI",
+                            "GitHub",
+                            "Postman",
+                            "VS Code",
+                            "Python",
+                            "MongoDB",
+                        ].map((tech, index, arr) => (
+                            <React.Fragment key={tech}>
+                                <span>{tech}</span>
+                                {index !== arr.length - 1 && <span>|</span>}
+                            </React.Fragment>
+                        ))}
+                    </Box>
+
+                </Box>
+
+
+
+
+
+            </Box>
+
+
+
+
+            <Box id="projects" style={{
+
+                padding: '80px 60px 120px 60px',
+                backgroundImage: `url(${bg_violet})`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+            }}>
+
+
+                <Box sx={{ py: 8, px: { xs: 3, md: 8 } }}>
+                    {/* Professional Projects */}
+                    <Typography
+                        variant="h4"
+                        fontWeight="bold"
+                        color="#eeeeee"
+
+                        mb={4}
+                    >
+                        Featured Professional Projects
+                    </Typography>
+
+                    <Grid container spacing={4}>
+                        {professionalProjects.map((project) => (
+                            <Grid size={{
+                                xs: 12, // 1 card per row
+                                sm: 6,  // 2 cards per row
+                                md: 4,  // 3 cards per row
+                            }} key={project.title}>
+                                <Card
+                                    sx={{
+                                        height: "100%",
+                                        borderRadius: 4,
+                                        boxShadow: 5,
+                                        transition: ".3s",
+                                        backgroundColor: '#eeeeee',
+                                        "&:hover": {
+                                            boxShadow: '0 10px 25px #fff',
+
+                                        },
+                                    }}
+                                >
+                                    <CardContent>
+
+                                        <Box fontWeight={700} sx={{ color: "#401258", fontSize: '20px' }}>
+                                            {project.title}
+                                        </Box>
+
+                                        <Typography
+                                            variant="body2"
+                                            color="#401258"
+                                            fontWeight={600}
+                                            mt={1}
+                                        >
+                                            {project.duration}
+                                        </Typography>
+
+                                        <Typography
+                                            variant="body2"
+                                            sx={{ mt: 2, textAlign: "justify" }}
+                                        >
+                                            {project.description}
+                                        </Typography>
+
+                                        <Box
+                                            sx={{
+                                                display: "flex",
+                                                flexWrap: "wrap",
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                gap: 1,
+                                                mt: 3,
+                                            }}
+                                        >
+                                            {project.tech.map((tech) => (
+                                                <Chip
+                                                    key={tech}
+                                                    label={tech}
+                                                    size="small"
+                                                    sx={{
+                                                        color: "#401258",
+                                                        fontWeight: 600,
+
+                                                    }}
+                                                />
+                                            ))}
+                                        </Box>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+
+                    {/* Personal Projects */}
+                    <Typography
+                        variant="h4"
+                        fontWeight="bold"
+                        color="#eeeeee"
+                        mt={10}
+                        mb={4}
+                    >
+                        Personal & Training Projects
+                    </Typography>
+
+                    <Grid container spacing={4}>
+                        {personalProjects.map((project) => (
+                            <Grid size={{
+                                xs: 12, // 1 card per row
+                                sm: 6,  // 2 cards per row
+                                md: 4,  // 3 cards per row
+                            }} key={project.title}>
+                                <Card
+                                    sx={{
+                                        height: "100%",
+                                        borderRadius: 4,
+                                        boxShadow: 3,
+                                        transition: ".3s",
+                                        backgroundColor: '#eeeeee',
+                                        "&:hover": {
+
+                                            boxShadow: '0 10px 25px #fff',
+
+                                        },
+                                    }}
+                                >
+                                    <CardContent>
+                                        <Box fontWeight={700} sx={{ color: "#401258", fontSize: '20px' }}>
+                                            {project.title}
+                                        </Box>
+
+                                        <Typography
+                                            variant="body2"
+                                            sx={{ mt: 2, textAlign: "justify" }}
+                                        >
+                                            {project.description}
+                                        </Typography>
+
+                                        <Box
+                                            sx={{
+                                                display: "flex",
+                                                flexWrap: "wrap",
+                                                justifyContent: 'center', alignItems: 'center',
+                                                gap: 1,
+                                                mt: 3,
+                                            }}
+                                        >
+                                            {project.tech.map((tech) => (
+                                                <Chip
+                                                    key={tech}
+                                                    label={tech}
+                                                    size="small"
+                                                    sx={{
+                                                        color: "#401258",
+                                                        fontWeight: 600,
+
+                                                    }}
+                                                />
+                                            ))}
+                                        </Box>
+
+                                        {(project.demo || project.github) && (
+                                            <Box sx={{ mt: 3 }}>
+                                                {project.demo && (
+                                                    <Button
+                                                        variant="contained"
+                                                        size="small"
+                                                        href={project.demo}
+                                                        target="_blank"
+                                                        sx={{
+                                                            mr: 2,
+                                                            bgcolor: "#401258",
+                                                            "&:hover": {
+                                                                bgcolor: "#5b197e",
+                                                            },
+                                                        }}
+                                                    >
+                                                        Live Demo
+                                                    </Button>
+                                                )}
+
+                                                {project.github && (
+                                                    <Button
+                                                        variant="outlined"
+                                                        size="small"
+                                                        href={project.github}
+                                                        target="_blank"
+                                                        sx={{
+                                                            color: "#401258",
+                                                            borderColor: "#401258",
+                                                        }}
+                                                    >
+                                                        GitHub
+                                                    </Button>
+                                                )}
+                                            </Box>
+                                        )}
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Box>
+
+
+
+            </Box>
+
+
+            <Box id="contact"
+                sx={{
+
+                    padding: {
+                        xs: "50px 20px 20px 20px",
+                        md: "50px 20px 20px 20px",
+                    },
+                    backgroundImage: `url(${bg_violet})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                }}>
+
+
+                <Typography
+                    variant="h3"
+                    fontWeight={700}
+                    color="#eeeeee"
+                    textAlign="center"
+                >
+                    Get In Touch
+                </Typography>
+
+                <Typography
+                    sx={{
+                        color: "#eeeeee",
+                        textAlign: "center",
+                        mt: 2,
+                        maxWidth: "700px",
+                        mx: "auto",
+                        lineHeight: 1.8,
+                        fontSize: "18px",
+                    }}
+                >
+                    I'm currently open to full-time opportunities. If you have a
+                    question, an opportunity or just want to connect, feel free to reach
+                    out to me. I'll be happy to hear from you.
+                </Typography>
+
+                {/* Contact Card */}
+
+                <Card
+                    sx={{
+                        maxWidth: "450px",
+                        margin: "40px auto 40px auto",
+                        borderRadius: "25px",
+                        background: '#eeeeee',
+                        border: "1px solid rgba(255,255,255,0.2)",
+                        color: "#401258",
+                    }}
+                >
+                    <CardContent sx={{ padding: "40px" }}>
+                        <Stack spacing={4}>
+                            {/* Email */}
+
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                                <EmailIcon sx={{ color: "#401258", fontSize: 30 }} />
+
+                                <Box>
+
+                                    <Typography
+                                        component="a"
+                                        href="mailto:dsachi31@gmail.com"
+                                        sx={{
+                                            color: "#401258",
+                                            textDecoration: "none",
+                                            textAlign: 'left',
+                                            "&:hover": {
+                                                color: "orange",
+                                                textDecoration: 'underline',
+                                            },
+                                        }}
+                                    >
+                                        dsachi31@gmail.com
+                                    </Typography>
+                                </Box>
+                            </Box>
+
+
+
+
+
+                            {/* LinkedIn */}
+
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                                <LinkedInIcon sx={{ color: "#401258", fontSize: 30 }} />
+
+                                <Box>
+
+                                    <Typography
+                                        component="a"
+                                        href="https://www.linkedin.com/in/divya-s-23b390193/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        sx={{
+                                            color: "#401258",
+                                            textDecoration: "none",
+                                            "&:hover": {
+                                                color: "orange",
+                                                textDecoration: 'underline',
+                                            },
+                                        }}
+                                    >
+                                        linkedin.com/in/divya-s-23b390193
+                                    </Typography>
+                                </Box>
+                            </Box>
+
+                            {/* GitHub */}
+
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                                <GitHubIcon sx={{ color: "#401258", fontSize: 30 }} />
+
+                                <Box>
+
+                                    <Typography
+                                        component="a"
+                                        href="https://github.com/dsachi31"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        sx={{
+                                            color: "#401258",
+                                            textDecoration: "none",
+                                            "&:hover": {
+                                                color: "orange",
+                                                textDecoration: 'underline',
+                                            },
+                                        }}
+                                    >
+                                        github.com/dsachi31
+                                    </Typography>
+                                </Box>
+                            </Box>
+
+
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                                <Box
+                                    component="img"
+                                    src={leetcode}
+                                    alt="LeetCode"
+                                    sx={{
+                                        width: 30,
+                                        height: 30,
+                                    }}
+                                />
+
+                                <Box>
+
+                                    <Box
+                                        component="a"
+                                        href="https://leetcode.com/u/Divya_S_31/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        sx={{
+                                            wordBreak: "break-all",      // Breaks long URLs
+                                            overflowWrap: "break-word",  // Modern browsers
+                                            whiteSpace: "normal",
+                                            textAlign: 'left',
+                                            color: "#401258",
+                                            textDecoration: "none",
+                                            "&:hover": {
+                                                color: "orange",
+                                                textDecoration: 'underline',
+                                            },
+                                        }}
+                                    >
+                                        https://leetcode.com/u/Divya_S_31/
+                                    </Box>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 2, paddingBottom: '10px' }}>
+                                <LocationOnIcon sx={{ color: "#401258", fontSize: 30 }} />
+
+                                <Box>
+
+                                    <Typography>Bangalore, Karnataka, India</Typography>
+                                </Box>
+                            </Box>
+
+
+                        </Stack>
+                    </CardContent>
+                </Card>
+
+                {/* Footer */}
+
+                <Typography
+                    sx={{
+                        color: "#ddd",
+                        textAlign: "center",
+                        mt: 5,
+                        fontSize: "15px",
+                        marginTop: '10px'
+                    }}
+                >
+                    Written by Divya S. Built with React.js & Material UI
+                </Typography>
+
+            </Box>
+
+
+
 
         </>
     );

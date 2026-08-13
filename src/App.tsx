@@ -11,8 +11,6 @@ import * as React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TechDevelopment from './TechDevelopment';
 import Portfolio from './Portfolio';
-import { Box, Button, Grid } from '@mui/material';
-import bg1 from '../src/bg2.png'
 import AboutPage from './AboutPage';
 import SkillsPage from './SkillsPage';
 import ExperinecePage from './ExperiencePage';
@@ -20,10 +18,6 @@ import ProjectsPage from './ProjectsPage';
 import ContactPage from './ContactPage';
 
 function App() {
-  const headStyle = {
-    textTransform: 'none', color: '#fff', fontSize: '17px', '&:hover': { textDecoration: "underline", }
-
-  }
 
   const [activeSection, setActiveSection] = React.useState("home");
 
@@ -59,23 +53,6 @@ function App() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-
-  const navStyle = (section: string) => ({
-    textTransform: "none",
-    fontSize: "17px",
-    color: activeSection === section ? "#6a1b9a" : "#eeeeee",
-    background:
-      activeSection === section ? "#eeeeee" : "transparent",
-    borderRadius: "25px",
-    px: 2,
-    transition: ".3s",
-
-    "&:hover": {
-      background: "#eeeeee",
-      color: "#6a1b9a",
-    },
-  });
 
   return (
     <div className="App">

@@ -5,7 +5,7 @@
 //docker --version
 //in docker desktop it must be running
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import * as React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';

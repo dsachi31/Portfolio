@@ -19,7 +19,6 @@ import profile from '../src/profile1.png';
 import bg1 from '../src/bg2.png'
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useNavigate } from "react-router-dom";
 import whitebg from '../src/white_bg.jpeg'
 
 

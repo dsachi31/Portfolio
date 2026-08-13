@@ -374,7 +374,7 @@ export default function TechDevelopment() {
                 </Typography>
 
                 <Box>
-                    <img src="/assets/images/technology.JPG" width="auto" height="auto"
+                    <img src="/assets/images/technology.JPG" width="auto" height="auto" alt="tech_image"
                         style={{
                             borderRadius: '10px',
                             maxWidth: '100%',  // image will never exceed parent width
@@ -931,7 +931,7 @@ export default function TechDevelopment() {
           >
          
             <Box sx={itemStyle}>
-              <img src="/assets/images/springboot.JPG" width="200" height="200" style={ImageStyle} />
+              <img alt="spring_image" src="/assets/images/springboot.JPG" width="200" height="200" style={ImageStyle} />
               <Box sx={textStyle}>
                 Sample project on Spring Boot application using Java
               </Box>
@@ -939,7 +939,7 @@ export default function TechDevelopment() {
 
          
             <Box sx={itemStyle}>
-              <img src="/assets/images/reactImage.JPG" width="200" height="200" style={ImageStyle} />
+              <img alt="rect_image" src="/assets/images/reactImage.JPG" width="200" height="200" style={ImageStyle} />
               <Box sx={textStyle}>
                 Sample project on Web application using React
               </Box>
@@ -947,7 +947,7 @@ export default function TechDevelopment() {
 
       
             <Box sx={itemStyle}>
-              <img src="/assets/images/restApi.jpg" width="200" height="200" style={ImageStyle} />
+              <img alt="restapi_image" src="/assets/images/restApi.jpg" width="200" height="200" style={ImageStyle} />
               <Box sx={textStyle}>
                 RESTful API development
               </Box>
@@ -955,14 +955,14 @@ export default function TechDevelopment() {
 
        
             <Box sx={itemStyle}>
-              <img src="/assets/images/apiIntegration.JPG" width="200" height="200" style={ImageStyle} />
+              <img  alt="api_integration" src="/assets/images/apiIntegration.JPG" width="200" height="200" style={ImageStyle} />
               <Box sx={textStyle}>
                 Integration of RESTful APIs
               </Box>
             </Box>
 
             <Box sx={itemStyle}>
-              <img src="/assets/images/gitGithub.jpg" width="200" height="200" style={ImageStyle} />
+              <img  alt="git_image" src="/assets/images/gitGithub.jpg" width="200" height="200" style={ImageStyle} />
               <Box sx={textStyle}>
                 Git and GitHub
               </Box>
@@ -970,7 +970,7 @@ export default function TechDevelopment() {
 
            
             <Box sx={itemStyle}>
-              <img src="/assets/images/devops.jpg" width="200" height="200" style={ImageStyle} />
+              <img alt="devops_image" src="/assets/images/devops.jpg" width="200" height="200" style={ImageStyle} />
               <Box sx={textStyle}>
                 DevOps fundamentals
               </Box>

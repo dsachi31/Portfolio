@@ -19,47 +19,9 @@ import ContactPage from './ContactPage';
 
 function App() {
 
-  const [activeSection, setActiveSection] = React.useState("home");
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        "home",
-        "about",
-        "skills",
-        "experience",
-        "projects",
-        "contact",
-      ];
-
-      let current = "home";
-
-      sections.forEach((section) => {
-        const element = document.getElementById(section);
-
-        if (element) {
-          const top = element.offsetTop - 120;
-
-          if (window.scrollY >= top) {
-            current = section;
-          }
-        }
-      });
-
-      setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="App">
-
-
       <Router>
-
         <Routes>
           <Route element={<TechDevelopment />} path='/techdev' />
           <Route element={<Portfolio />} path="/" />
@@ -69,9 +31,6 @@ function App() {
           <Route element={<ExperinecePage />} path="/di_experience" />
           <Route element={<ProjectsPage />} path="/di_projects" />
           <Route element={<ContactPage />} path="/di_contact" />
-
-
-          {/* <ResumePage /> */}
 
         </Routes>
       </Router>

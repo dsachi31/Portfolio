@@ -8,8 +8,7 @@ import {
     Button,
 } from "@mui/material";
 import bg_violet from '../src/bg_violet.png'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import react from 'react'
+
 const ProjectsPage = () => {
 
 

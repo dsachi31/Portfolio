@@ -19,7 +19,6 @@ import spring from '../src/logos/spring_logo-removebg-preview.png'
 import sql from '../src/logos/sql_logo-removebg-preview.png'
 import vscode from '../src/logos/vscode-removebg-preview.png'
 import restapi from '../src/logos/Rest_api_logo-removebg-preview.png'
-import javascript from '../src/logos/javascript_logo-removebg-preview.png'
 import python from '../src/logos/python.png'
 import django from '../src/logos/django.png'
 

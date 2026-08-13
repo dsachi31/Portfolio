@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Grid } from '@mui/material';
+import { Box} from '@mui/material';
 import './App.css';
 import whitebg from '../src/white_bg.jpeg'
 const AboutPage = () => {

@@ -1,3 +1,10 @@
+//create dockerfile and add commands
+//docker build -t bdproject .
+// docker run -d -p 3000:80 --name bdproject-container bdproject
+//docker ps
+//docker --version
+//in docker desktop it must be running
+
 import logo from './logo.svg';
 import './App.css';
 import * as React from 'react';

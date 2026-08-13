@@ -2,14 +2,7 @@ import { Box } from '@mui/material';
 import React from 'react';
 import whitebg from '../src/white_bg.jpeg'
 
-import bg_violet from '../src/bg_violet.png'
-
-
-
 const ExperinecePage = () => {
-
-
-
 
     return (
 
@@ -114,14 +107,7 @@ const ExperinecePage = () => {
 
             </Box>
 
-
-
-
-
         </Box>
-
-
-
 
     )
 }

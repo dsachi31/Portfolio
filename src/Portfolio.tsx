@@ -809,12 +809,6 @@ export default function Portfolio() {
                     <KeyboardArrowUpIcon />
                 </Fab>
             </Zoom>
-
-
-
-
-
-
             <Box id="about" style={{
                 padding: '120px 60px 20px 60px',
                 backgroundImage: `url(${whitebg})`,

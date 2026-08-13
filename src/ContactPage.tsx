@@ -7,6 +7,7 @@ import {
     IconButton,
 } from "@mui/material";
 
+import leetcode from '../src/leetcodeIcon.png'
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -19,8 +20,8 @@ const ContactPage = () => {
         <Box
             sx={{
                 padding: {
-                    xs: "80px 20px",
-                    md: "100px 60px",
+                    xs: "50px 20px 20px 20px",
+                    md: "50px 20px 20px 20px",
                 },
                 backgroundImage: `url(${bg_violet})`,
                 backgroundRepeat: "no-repeat",
@@ -50,17 +51,17 @@ const ContactPage = () => {
                     fontSize: "18px",
                 }}
             >
-                I'm currently open to full-time opportunities. Whether you have a
-                question, an opportunity, or just want to connect, feel free to reach
-                out. I'll be happy to hear from you.
+                I'm currently open to full-time opportunities. If you have a
+                question, an opportunity or just want to connect, feel free to reach
+                out to me. I'll be happy to hear from you.
             </Typography>
 
             {/* Contact Card */}
 
             <Card
                 sx={{
-                    maxWidth: "750px",
-                    margin: "50px auto",
+                    maxWidth: "450px",
+                    margin: "40px auto 40px auto",
                     borderRadius: "25px",
                     background: '#eeeeee',
                     border: "1px solid rgba(255,255,255,0.2)",
@@ -82,8 +83,10 @@ const ContactPage = () => {
                                     sx={{
                                         color: "#401258",
                                         textDecoration: "none",
+                                        textAlign: 'left',
                                         "&:hover": {
-                                            color: "#401258",
+                                            color: "orange",
+                                            textDecoration: 'underline',
                                         },
                                     }}
                                 >
@@ -92,16 +95,9 @@ const ContactPage = () => {
                             </Box>
                         </Box>
 
-                        {/* Location */}
 
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                            <LocationOnIcon sx={{ color: "#401258", fontSize: 30 }} />
 
-                            <Box>
 
-                                <Typography>Bangalore, Karnataka, India</Typography>
-                            </Box>
-                        </Box>
 
                         {/* LinkedIn */}
 
@@ -119,7 +115,8 @@ const ContactPage = () => {
                                         color: "#401258",
                                         textDecoration: "none",
                                         "&:hover": {
-                                            color: "#401258",
+                                            color: "orange",
+                                            textDecoration: 'underline',
                                         },
                                     }}
                                 >
@@ -144,7 +141,8 @@ const ContactPage = () => {
                                         color: "#401258",
                                         textDecoration: "none",
                                         "&:hover": {
-                                            color: "#401258",
+                                            color: "orange",
+                                            textDecoration: 'underline',
                                         },
                                     }}
                                 >
@@ -152,6 +150,50 @@ const ContactPage = () => {
                                 </Typography>
                             </Box>
                         </Box>
+
+
+                        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                            <Box
+                                component="img"
+                                src={leetcode}
+                                alt="LeetCode"
+                                sx={{
+                                    width: 30,
+                                    height: 30,
+                                }}
+                            />
+
+                            <Box>
+
+                                <Typography
+                                    component="a"
+                                    href="https://leetcode.com/u/Divya_S_31/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    sx={{
+                                        color: "#401258",
+                                        textDecoration: "none",
+                                        "&:hover": {
+                                            color: "orange",
+                                            textDecoration: 'underline',
+                                        },
+                                    }}
+                                >
+                                    https://leetcode.com/u/Divya_S_31/
+                                </Typography>
+                            </Box>
+                        </Box>
+
+                        <Box sx={{ display: "flex", alignItems: "center", gap: 2, paddingBottom: '10px' }}>
+                            <LocationOnIcon sx={{ color: "#401258", fontSize: 30 }} />
+
+                            <Box>
+
+                                <Typography>Bangalore, Karnataka, India</Typography>
+                            </Box>
+                        </Box>
+
+
                     </Stack>
                 </CardContent>
             </Card>
@@ -164,9 +206,10 @@ const ContactPage = () => {
                     textAlign: "center",
                     mt: 5,
                     fontSize: "15px",
+                    marginTop: '10px'
                 }}
             >
-                © 2026 Divya S. Built with React.js & Material UI
+                Written by Divya S. Built with React.js & Material UI
             </Typography>
         </Box>
     );

@@ -6,6 +6,11 @@ import TechDevelopment from './TechDevelopment';
 import Portfolio from './Portfolio';
 import { Box, Button, Grid } from '@mui/material';
 import bg1 from '../src/bg2.png'
+import AboutPage from './AboutPage';
+import SkillsPage from './SkillsPage';
+import ExperinecePage from './ExperiencePage';
+import ProjectsPage from './ProjectsPage';
+import ContactPage from './ContactPage';
 
 function App() {
   const headStyle = {
@@ -13,42 +18,77 @@ function App() {
 
   }
 
+  const [activeSection, setActiveSection] = React.useState("home");
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "experience",
+        "projects",
+        "contact",
+      ];
+
+      let current = "home";
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+
+        if (element) {
+          const top = element.offsetTop - 120;
+
+          if (window.scrollY >= top) {
+            current = section;
+          }
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+  const navStyle = (section: string) => ({
+    textTransform: "none",
+    fontSize: "17px",
+    color: activeSection === section ? "#6a1b9a" : "#eeeeee",
+    background:
+      activeSection === section ? "#eeeeee" : "transparent",
+    borderRadius: "25px",
+    px: 2,
+    transition: ".3s",
+
+    "&:hover": {
+      background: "#eeeeee",
+      color: "#6a1b9a",
+    },
+  });
 
   return (
     <div className="App">
-      <Grid container sx={{
-        // display: 'flex',
-        // alignItems: 'center',
-        // justifyContent: 'space-between',
-        background: 'linear-gradient(135deg,  #0a080b, #0c0311, #6a1b9a, #6a1b9a,  #401258, #360d4f, #220929, #0c0311, #000)',
-        // padding: '5px 10px',
-        padding: '10px 80px 10px 70px',
-        position: 'sticky',
-        top: 0,
-        left: 0
 
-      }}>
-
-        <Grid size={2} sx={{ color: '#fff', textAlign: 'left', }} >
-          <Button sx={headStyle}>Divya S</Button>
-        </Grid>
-        <Grid size={3}></Grid>
-        <Grid size={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Button sx={headStyle}>Home</Button>
-          <Button sx={headStyle}>About</Button>
-          <Button sx={headStyle}>Skills</Button>
-          <Button sx={headStyle}>Experience</Button>
-          <Button sx={headStyle}>Projects</Button>
-          <Button sx={headStyle}>Resume</Button>
-          <Button sx={headStyle}>Contact</Button>
-        </Grid>
-      </Grid>
 
       <Router>
 
         <Routes>
           <Route element={<TechDevelopment />} path='/techdev' />
           <Route element={<Portfolio />} path="/" />
+          <Route element={<Portfolio />} path="/" />
+          <Route element={<AboutPage />} path="/di_about" />
+          <Route element={<SkillsPage />} path="/di_skills" />
+          <Route element={<ExperinecePage />} path="/di_experience" />
+          <Route element={<ProjectsPage />} path="/di_projects" />
+          <Route element={<ContactPage />} path="/di_contact" />
+
+
+          {/* <ResumePage /> */}
+
         </Routes>
       </Router>
 

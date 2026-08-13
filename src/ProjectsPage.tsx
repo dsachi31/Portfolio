@@ -8,7 +8,7 @@ import {
     Button,
 } from "@mui/material";
 import bg_violet from '../src/bg_violet.png'
-
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import react from 'react'
 const ProjectsPage = () => {
 
@@ -25,15 +25,15 @@ const ProjectsPage = () => {
             title: "HR Management System",
             duration: "Jan 2024 – Oct 2024",
             description:
-                "Developed interview scheduling, resume processing, and AI-assisted document analysis modules. Built REST APIs and integrated responsive frontend components.",
+                "Developed interview scheduling, resume processing, and AI-assisted document analysis modules. Built REST APIs and integrated responsive frontend user interface using below tech stacks",
             tech: ["java Spring Boot", "React.js", "MySQL", "Django Python"],
         },
         {
             title: "Drug Visualization System",
             duration: "Jun 2023 –   Dec 2023",
             description:
-                "Developed visualization dashboards and backend modules for cancer drug research, improving data representation and user interaction.",
-            tech: ["Java", "Spring Boot", "React.js", "D3.js"],
+                "Developed drug visualization dashboards and backend modules for cancer drug research by categorising both Intravenous and Non-Intravenous medications, improving data representation and user interaction.",
+            tech: ["Java", "Spring Boot", "React.js", "D3.js", "Typescript"],
         },
     ];
 
@@ -41,16 +41,16 @@ const ProjectsPage = () => {
         {
             title: "Portfolio Website",
             description:
-                "Designed and developed a responsive portfolio website to showcase my experience, skills, and projects.",
-            tech: ["React.js", "Material UI"],
-            demo: "#",
+                "Designed and developed a responsive portfolio website to showcase my experience, skills, and projects along with my resume attached for any update please contact for the below details provided.",
+            tech: ["React.js", "Typescript", "HTML5", "CSS3", "Material UI"],
+
             github: "https://github.com/dsachi31/Portfolio",
         },
         {
-            title: "AI Chatbot",
+            title: "Predefined User Chatbot",
             description:
-                "Developed an AI-powered chatbot capable of answering user queries with an interactive UI.",
-            tech: ["React.js", "JavaScript"],
+                "Developed a chatbot capable of answering predefined queries with an interactive User Interface (UI) for the already defined answers recorded using below tech stacks. ",
+            tech: ["React.js", "JavaScript", "HTML5", "CSS3"],
             demo: "https://dsachiwfmchatbot.netlify.app/",
             github: "https://github.com/dsachi31/chatbot",
         },
@@ -60,7 +60,7 @@ const ProjectsPage = () => {
                 "Developed a responsive web application that showcases various software development technologies, programming concepts, and learning resources. Designed an intuitive interface to help users explore technical topics with a clean and user-friendly experience.",
             tech: [
                 "React.js",
-                "JavaScript",
+                "Typescript",
                 "Material UI",
                 "HTML5",
                 "CSS3",
@@ -73,22 +73,11 @@ const ProjectsPage = () => {
             title: "Anime Website",
             description:
                 "Built a responsive anime browsing website with a modern UI and API integration by taking random anime api from Rapid API Platform.",
-            tech: ["React.js", "JavaScript"],
+            tech: ["React.js", "JavaScript", "HTML5", "CSS3", "Rapid API"],
             demo: "https://tranquil-longma-eceb3f.netlify.app/",
             github: "https://github.com/dsachi31/Divya_Animes",
         },
-        {
-            title: "The Med Route",
-            description:
-                "Healthcare web application providing doorstep healthcare services with secure client authentication and RESTful APIs.",
-            tech: [
-                "Java",
-                "Spring Boot",
-                "Hibernate",
-                "React.js",
-                "MySQL",
-            ],
-        },
+
         {
             title: "Money Wheels",
             description:
@@ -115,11 +104,6 @@ const ProjectsPage = () => {
         backgroundPosition: "center",
         backgroundSize: "cover",
     }}>
-
-
-
-
-
 
 
         <Box sx={{ py: 8, px: { xs: 3, md: 8 } }}>
@@ -151,9 +135,10 @@ const ProjectsPage = () => {
                             }}
                         >
                             <CardContent>
-                                <Typography variant="h6" fontWeight={700} sx={{ color: "#401258", fontSize: '20px' }}>
+
+                                <Box fontWeight={700} sx={{ color: "#401258", fontSize: '20px' }}>
                                     {project.title}
-                                </Typography>
+                                </Box>
 
                                 <Typography
                                     variant="body2"
@@ -175,6 +160,8 @@ const ProjectsPage = () => {
                                     sx={{
                                         display: "flex",
                                         flexWrap: "wrap",
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
                                         gap: 1,
                                         mt: 3,
                                     }}
@@ -185,8 +172,9 @@ const ProjectsPage = () => {
                                             label={tech}
                                             size="small"
                                             sx={{
-                                                bgcolor: "#401258",
-                                                color: "#eeeeee",
+                                                color: "#401258",
+                                                fontWeight: 600,
+
                                             }}
                                         />
                                     ))}
@@ -226,9 +214,9 @@ const ProjectsPage = () => {
                             }}
                         >
                             <CardContent>
-                                <Typography variant="h6" fontWeight={700} sx={{ color: "#401258", fontSize: '20px' }}>
+                                <Box fontWeight={700} sx={{ color: "#401258", fontSize: '20px' }}>
                                     {project.title}
-                                </Typography>
+                                </Box>
 
                                 <Typography
                                     variant="body2"
@@ -241,6 +229,7 @@ const ProjectsPage = () => {
                                     sx={{
                                         display: "flex",
                                         flexWrap: "wrap",
+                                        justifyContent: 'center', alignItems: 'center',
                                         gap: 1,
                                         mt: 3,
                                     }}
@@ -251,8 +240,9 @@ const ProjectsPage = () => {
                                             label={tech}
                                             size="small"
                                             sx={{
-                                                bgcolor: "#401258",
-                                                color: "#eeeeee",
+                                                color: "#401258",
+                                                fontWeight: 600,
+
                                             }}
                                         />
                                     ))}

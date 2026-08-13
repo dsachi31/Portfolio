@@ -3,10 +3,8 @@
 
 
 
-import logo from './logo.svg';
-import './App.css';
-import { Box, Typography, List, ListItem, ListItemText } from '@mui/material';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+// import './App.css';
+import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 
 import { useEffect, useState } from 'react';
@@ -98,38 +96,38 @@ const infoCards = [
     },
 ];
 // jjjjjjjjjjjjjjjjjjjjjjjj
-const itemStyle = {
-    padding: '50px',
-    borderRadius: '30px',
-    minWidth: 240,
-    backgroundColor: '#97aaf6ff',
+// const itemStyle = {
+//     padding: '50px',
+//     borderRadius: '30px',
+//     minWidth: 240,
+//     backgroundColor: '#97aaf6ff',
 
-    textAlign: 'center',
-    boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-    '&:hover': {
-        transform: 'scale(1.1)',
-        // boxShadow: '0 20px 40px rgba(0,0,0,0.50)',
-        boxShadow: '0 20px 40px #fff',
+//     textAlign: 'center',
+//     boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+//     '&:hover': {
+//         transform: 'scale(1.1)',
+//         // boxShadow: '0 20px 40px rgba(0,0,0,0.50)',
+//         boxShadow: '0 20px 40px #fff',
 
-        zIndex: 10,
-    }
-};
+//         zIndex: 10,
+//     }
+// };
 
-const textStyle = {
-    marginTop: 2,
-    fontWeight: 500,
+// const textStyle = {
+//     marginTop: 2,
+//     fontWeight: 500,
 
-};
+// };
 
-const ImageStyle = {
-    borderRadius: '50px',
-    maxWidth: '100%',  // image will never exceed parent width
-    height: 'auto',
-}
+// const ImageStyle = {
+//     borderRadius: '50px',
+//     maxWidth: '100%',  // image will never exceed parent width
+//     height: 'auto',
+// }
 export default function TechDevelopment() {
 
     const [showButton, setShowButton] = useState(false);
-    const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
+    // const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -156,10 +154,10 @@ export default function TechDevelopment() {
             behavior: 'smooth',
         });
     };
-    const [state, setState] = React.useState({
+    // const [state, setState] = React.useState({
 
-        right: false,
-    });
+    //     right: false,
+    // });
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);

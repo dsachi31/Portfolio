@@ -4,7 +4,6 @@ import {
     Card,
     CardContent,
     Stack,
-    IconButton,
 } from "@mui/material";
 
 import leetcode from '../src/leetcodeIcon.png'

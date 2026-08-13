@@ -19,13 +19,6 @@ import profile from '../src/profile1.png';
 import bg1 from '../src/bg2.png'
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
-import AboutPage from '../src/AboutPage'
-import SkillsPage from '../src/SkillsPage'
-import ExperinecePage from './ExperiencePage';
-import ProjectsPage from './ProjectsPage';
-import ResumePage from './ResumePage';
-import ContactPage from './ContactPage';
-import { useNavigate } from "react-router-dom";
 import whitebg from '../src/white_bg.jpeg'
 
 
@@ -49,7 +42,6 @@ import spring from '../src/logos/spring_logo-removebg-preview.png'
 import sql from '../src/logos/sql_logo-removebg-preview.png'
 import vscode from '../src/logos/vscode-removebg-preview.png'
 import restapi from '../src/logos/Rest_api_logo-removebg-preview.png'
-import javascript from '../src/logos/javascript_logo-removebg-preview.png'
 import python from '../src/logos/python.png'
 import django from '../src/logos/django.png'
 
@@ -72,7 +64,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 export default function Portfolio() {
 
 
-    const navigate = useNavigate()
     const headStyle = {
         textTransform: 'none', color: '#fff', fontSize: '17px', '&:hover': { textDecoration: "underline", }
 
@@ -331,40 +322,6 @@ export default function Portfolio() {
     return (
         <>
 
-            {/* <Grid id="navbar" container sx={{
-                // display: 'flex',
-                // alignItems: 'center',
-                // justifyContent: 'space-between',
-                background: 'linear-gradient(135deg,  #0a080b, #0c0311, #6a1b9a, #6a1b9a,  #401258, #360d4f, #220929, #0c0311, #000)',
-                // padding: '5px 10px',
-                padding: '10px 80px 10px 70px',
-                position: "fixed",
-                top: 0,
-                width: "100%",
-                zIndex: 9999,
-
-            }}>
-
-                <Grid size={2} sx={{ color: '#fff', textAlign: 'left', }} >
-                    <Button sx={headStyle}>Divya S</Button>
-                </Grid>
-                <Grid size={3}></Grid>
-                <Grid size={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-
-
-                    <Button sx={navStyle("home")} onClick={() => scrollToSection("home")}>Home</Button>
-
-                    <Button sx={navStyle("about")} onClick={() => scrollToSection("about")}>About</Button>
-
-                    <Button sx={navStyle("skills")} onClick={() => scrollToSection("skills")}>Skills</Button>
-
-                    <Button sx={navStyle("experience")} onClick={() => scrollToSection("experience")}>Experience</Button>
-
-                    <Button sx={navStyle("projects")} onClick={() => scrollToSection("projects")}>Projects</Button>
-
-                    <Button sx={navStyle("contact")} onClick={() => scrollToSection("contact")}>Contact</Button>
-                </Grid>
-            </Grid> */}
             <Grid
                 container
                 alignItems="center"
@@ -379,12 +336,10 @@ export default function Portfolio() {
                     zIndex: 9999,
                 }}
             >
-                {/* Logo */}
                 <Grid size={{ xs: 5, md: 1 }}>
                     <Box sx={{ fontWeight: 600, ...headStyle }}>Divya S</Box>
                 </Grid>
 
-                {/* Desktop Menu */}
                 <Grid
                     size={{ md: 9 }}
                     sx={{
@@ -430,7 +385,6 @@ export default function Portfolio() {
                     </Button>
                 </Grid>
 
-                {/* Mobile Menu Icon */}
                 <Grid
                     size={{ xs: 6 }}
                     sx={{
@@ -485,9 +439,6 @@ export default function Portfolio() {
                 // background: '#7b1fa2',
                 background: 'linear-gradient(135deg,  #0a080b, #0c0311, #6a1b9a, #6a1b9a,  #401258, #360d4f, #220929, #0c0311, #000)',
 
-                // background: 'linear-gradient(135deg,  #6a1b9a, #6a1b9a, #8e24aa, #7b1fa2,  #7b1fa2, #6a1b9a, #6a1b9a, #6a1b9a,  #ba68c8, #9c27b0)',
-                // boxShadow: ' rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
-
                 backgroundImage: `url(${bg1})`,
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
@@ -512,10 +463,7 @@ export default function Portfolio() {
                         xs: '10px',
                         md: '15px 20px'
                     }
-                    // backgroundImage: `url(${profile})`,
-                    // backgroundRepeat: "no-repeat",
-                    // backgroundPosition: "center",
-                    // backgroundSize: "cover",
+
                 }}>
 
 
@@ -641,16 +589,8 @@ export default function Portfolio() {
 
                         </Box>
                         <div>
-                            {/* <Box
-                                aria-owns={openPopup ? 'mouse-over-popover' : undefined}
-                                aria-haspopup="true"
-                                onMouseEnter={handlePopoverOpen}
-                                onMouseLeave={handlePopoverClose}
-                            >
-                                Hover with a Popover.
-                            </Box> */}
+
                             <Popover
-                                // id="mouse-over-popover"
                                 disableScrollLock
                                 sx={{ pointerEvents: 'none' }}
                                 open={openPopup}
@@ -659,10 +599,7 @@ export default function Portfolio() {
                                     vertical: 'bottom',
                                     horizontal: 'left',
                                 }}
-                                // transformOrigin={{
-                                //     vertical: 'top',
-                                //     horizontal: 'left',
-                                // }}
+
                                 onClose={handlePopoverClose}
                                 disableRestoreFocus
                             >
@@ -771,22 +708,9 @@ export default function Portfolio() {
 
                     </Grid>
 
-                    {/* <Grid size={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
-
-                    <img alt="profile" src={profile} height='120%' width='100%'
-                        style={{
-                            // padding: '10px', borderRadius: '50%',
-                            // border: '6px dotted #fff',
-                            // outline: '8px dotted #fff',
-                            // outlineOffset: '8px',
-                        }} />
-
-                </Grid> */}
-
                 </Grid>
 
             </Box >
-
 
             <Zoom in={showButton}>
                 <Fab
@@ -847,26 +771,7 @@ export default function Portfolio() {
 
                         <p style={{ paddingTop: '30px' }}>********************</p>
 
-                        {/* <ul style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'column', padding: '10px' }}>
-                    <li>Developing scalable and secure RESTful APIs using Java and Spring Boot.</li>
 
-                    <li>Designing and implementing responsive user interfaces using React.js, TypeScript, HTML, CSS, and Material UI.</li>
-
-                    <li>Writing clean, reusable, and maintainable code following industry best practices.</li>
-
-                    <li>Collaborating with cross-functional Agile teams to understand business requirements and deliver high-quality solutions.</li>
-
-                    <li>Integrating frontend applications with backend REST APIs.</li>
-
-                    <li>Working with MySQL database for designing tables.</li>
-
-                    <li>Using Git and GitHub for version control, code reviews, and team collaboration.</li>
-
-                    <li>Debugging, testing, and fixing application issues to improve performance and reliability.</li>
-
-                    <li>Participating in feature development, bug fixing, and application enhancements.</li>
-
-                </ul> */}
                         <br />
 
 
